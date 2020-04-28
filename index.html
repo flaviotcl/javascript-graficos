@@ -27,13 +27,49 @@
                                 text: title
                             },
 
-                            series: [{
-
-                                data: data
-                            }]
+                            series: [
+                                {
+                                    name: "Janeiro",
+                                    data: data
+                                },
+                                {
+                                    name: "Fevereiro",
+                                    data: [3,5,7]
+                                },
+                                {
+                                    name: "Março",
+                                    data: [1,2,3,7,9]
+                                },
+                                {
+                                    name: "Abril",
+                                    data: [9,2,8,6,4]
+                                },
+                            
+                            
+                            
+                            
+                            
+                            ]
                           };
 
-        new Highcharts.Chart(options);
+        const chart = new Highcharts.Chart(options);
+
+        setTimeout( ()=>{
+                            chart.addSeries({
+                                                    name: "Junho",
+                                                    data: [8,1,7,5,3]
+                                            })     
+                         }, 3000);
+
+   /*     for (let i = 0; i< 5; i++){
+            setTimeout( ()=>{
+                            chart.addSeries({
+                                                    name: "Junho",
+                                                    data: [8,1,7,5,3]
+                                            })     
+                         },  i *3000);
+        }
+     */   
 
     </script>
 </body>
