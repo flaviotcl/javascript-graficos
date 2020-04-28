@@ -3,9 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Aprendendo sobre Gráficos - Biblioteca HighCharts.</title>
+    <link rel="stylesheet" href="highcharts.css">
 </head>
 <body>
-    
+    <div id="chart"></div>
+    <script src="highcharts.js"></script>
+
+
+    <script>
+
+        const data =  [1,2,3,4,5];
+        const titulo = "Buscando o Título de uma Variável -> Meu 1° Gráfico"
+        /* Buscando o texto colocado dentro da tag <title> */
+        const title = document.getElementsByTagName('title')[0].innerText;
+        const options = {
+                            chart: {
+                                type: 'bar',
+                                renderTo: document.getElementById('chart')
+                            },
+
+                            title:{
+                                text: title
+                            },
+
+                            series: [{
+
+                                data: data
+                            }]
+                          };
+
+        new Highcharts.Chart(options);
+
+    </script>
 </body>
 </html>
