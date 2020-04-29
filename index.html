@@ -13,28 +13,38 @@
     
     
     <script>
+        
         const options = {
                             chart:{
-                                    type: "pie",
-                                    renderTo: document.getElementById('chart')                         },
+                                    type: 'spline',
+                                    renderTo: document.getElementById('chart'), 
+                                    events:{
+                                    load(){
+                                        setInterval(() => {
+                                                const x = (new Date()).getTime();
+                                                const y = Math.random();
+                                                this.series[0].addPoint([x,y],true,true);
+                                        }, 1000);
+                                    }
+
+                                 }
+                            },
                             title:{
                                     text: "Meu 1º Gráfico"
                             },
-                            plotOptions:{
-                                    pie:{
-                                        allowPointSelect: true,
-                                        showInLegend:  true
-                                    }
-                            },
                             series:[{
-                                     name: "Idades",
-                                    data: [
-                                            {name: "Erik", y: 33, sliced:true, selected:true},
-                                            {name: "João", y: 27},
-                                            {name: "Manoel", y: 22},
-                                            {name: "Maria", y: 23},
-                                            {name: "Matheus", y: 37},
-                                     ]
+                                    name: "Idades",
+                                    data: (function(){
+                                                const data = []
+                                                const time = (new Date()).getTime();
+                                                for(let i = 0; i <= 20; i ++){
+                                                    data.push({
+                                                        x: time + (i*1000),
+                                                        y: Math.random()
+                                                    })
+                                                }
+                                                return data;    
+                                            }())
                             }]
 
         };

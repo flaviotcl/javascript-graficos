@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprendendo sobre Gráficos - Biblioteca HighCharts.</title>
+    <link rel="stylesheet" href="highcharts.css">
+</head>
+<body>
+    <div id="chart"></div>
+    <script src="highcharts.js"></script>
+    <script src="https://code.highcharts.com/js/modules/exporting.js"></script>
+    
+    
+    <script>
+        const options = {
+                            chart:{
+                                    type: "pie",
+                                    renderTo: document.getElementById('chart')                         },
+                            title:{
+                                    text: "Meu 1º Gráfico"
+                            },
+                            plotOptions:{
+                                    pie:{
+                                        allowPointSelect: true,
+                                        showInLegend:  true
+                                    }
+                            },
+                            series:[{
+                                     name: "Idades",
+                                    data: [
+                                            {name: "Erik", y: 33, sliced:true, selected:true},
+                                            {name: "João", y: 27},
+                                            {name: "Manoel", y: 22},
+                                            {name: "Maria", y: 23},
+                                            {name: "Matheus", y: 37},
+                                     ]
+                            }]
+
+        };
+
+        new Highcharts.chart(options);
+        
+    
+    
+    </script>
+</body>
+</html>
